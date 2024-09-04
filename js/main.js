@@ -4,19 +4,21 @@ let entries = [
     { date: '2024-09-03', sleep: 8, moods: ['happy', 'energetic'], journal: 'Great day overall!' }
 ];
 
-const currentDate = new Date().toISOString().split('T')[0];
+const currentDate = new Date();
+const dateString = currentDate.toISOString().split('T')[0];
 
-let todayEntry = entries.find(entry => entry.date === currentDate);
+let todayEntry = entries.find(entry => entry.date === dateString);
 if (!todayEntry) {
-    todayEntry = { date: currentDate, sleep: 0, moods: [], journal: '' };
+    todayEntry = { date: dateString, sleep: 0, moods: [], journal: '' };
     entries.push(todayEntry);
 }
 
-document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+document.getElementById('current-date').textContent = currentDate.toLocaleDateString();
 
 document.getElementById('sleep-hours').addEventListener('input', function(e) {
     todayEntry.sleep = parseFloat(e.target.value) || 0;
     updateSummary();
+    updateSleepScore();
 });
 
 document.getElementById('mood-checkboxes').addEventListener('change', function(e) {
@@ -56,11 +58,24 @@ function updateSummary() {
     }
 }
 
+function updateSleepScore() {
+    const sleepScore = Math.min(todayEntry.sleep / 8 * 100, 100);
+    const scoreArc = document.getElementById('sleep-score-arc');
+    const scoreText = document.getElementById('sleep-score-text');
+    
+    const angle = sleepScore / 100 * 180;
+    const x = 50 + 45 * Math.sin(angle * Math.PI / 180);
+    const y = 50 - 45 * Math.cos(angle * Math.PI / 180);
+    scoreArc.setAttribute('d', `M50 5 A45 45 0 ${angle > 180 ? 1 : 0} 1 ${x} ${y}`);
+    scoreText.textContent = `${Math.round(sleepScore)}%`;
+}
+
+updateSummary();
+updateSleepScore();
+
 document.getElementById('sleep-hours').value = todayEntry.sleep;
 document.getElementById('journal-entry').value = todayEntry.journal;
 todayEntry.moods.forEach(mood => {
     const checkbox = document.querySelector(`input[type="checkbox"][value="${mood}"]`);
     if (checkbox) checkbox.checked = true;
 });
-
-updateSummary();
