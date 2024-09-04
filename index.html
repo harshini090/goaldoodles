@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Goal Doodles</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Goal Doodles</h1>
+        
+        <div class="user-info">
+            <p>Welcome, Harshini!</p>
+            <p>Date: <span id="current-date"></span></p>
+        </div>
+
+        <img src="avatar.webp" alt="User's daily image" class="user-image">
+
+        <div class="quote" id="inspirational-quote">
+            "If you don't take risks, you can't create a future" - Luffy
+        </div>
+
+        <div class="input-group">
+            <h3>Thought Twists & Turns</h3>
+            <textarea id="journal-entry" class="journal-entry" placeholder="Brain dump here..."></textarea>
+        </div>
+
+        <div class="input-group">
+            <h3>Sleep Tracker</h3>
+            <label for="sleep-hours">Hours of sleep</label>
+            <input type="number" id="sleep-hours" class="sleep-input" min="0" max="24" step="0.5">
+        </div>
+
+        <div class="input-group">
+            <h3>Mood Tracker</h3>
+            <div class="mood-checkboxes" id="mood-checkboxes">
+                <label><input type="checkbox" name="mood" value="energetic"> Energetic</label>
+                <label><input type="checkbox" name="mood" value="anxious"> Anxious</label>
+                <label><input type="checkbox" name="mood" value="motivated"> Motivated</label>
+                <label><input type="checkbox" name="mood" value="happy"> Happy</label>
+                <label><input type="checkbox" name="mood" value="tired"> Tired</label>
+            </div>
+        </div>
+
+        <div class="sleep-score">
+            <h3>Sleep Score</h3>
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#e0e0e0" />
+                <path id="sleep-score-arc" d="M50 5 A45 45 0 0 1 95 50" stroke="#3498db" stroke-width="10" fill="none" />
+                <text id="sleep-score-text" x="50" y="50" text-anchor="middle" dy=".3em" font-size="20">75%</text>
+            </svg>
+        </div>
+
+        <div class="summary">
+            <h3>Summary</h3>
+            <p>Average sleep: <span id="avg-sleep"></span> hours</p>
+            <div id="mood-summary"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

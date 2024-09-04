@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-size: 18px; 
+}
+
+.container {
+    background-color: #a19ce3bd;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em; 
+}
+
+.user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px auto;
+}
+
+.quote {
+    font-style: italic;
+    color: #1c1a3a;
+    margin: 20px 0;
+    font-size: 0.8em; 
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group h3 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    font-size: 1.1em; 
+    margin-bottom: 5px;
+}
+
+textarea.journal-entry {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px;
+    border: 1px solid #1c1a3a;
+    border-radius: 5px;
+    padding: 10px;
+    resize: vertical;
+    font-size: 1em; 
+    font-family: "Poppins", sans-serif;
+}
+
+.sleep-input {
+    width: 70px;
+    padding: 5px;
+    border: 1px solid #1c1a3a;
+    border-radius: 5px;
+    font-size: 1em; 
+}
+
+.mood-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.mood-checkboxes label {
+    display: flex;
+    align-items: center;
+    background-color: #ecf0f1;
+    padding: 8px 12px; 
+    border-radius: 20px;
+    font-size: 1em; 
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.2); 
+}
+
+.sleep-score {
+    margin-top: 20px;
+}
+
+.summary {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 1.1em; 
+}
